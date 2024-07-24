@@ -21,11 +21,11 @@ public class TestOrder {
     private final String phone;
     private final String dateRent;
     private final String comment;
-    private final Browser browser;
+    private final ConstantEnum.Browser browser;
     private final MainPage.Button button;
 
 
-    public TestOrder(String name, String surName, String adress,String phone,String dateRent,String comment,Browser browser,MainPage.Button button) {
+    public TestOrder(String name, String surName, String adress,String phone,String dateRent,String comment,ConstantEnum.Browser browser,MainPage.Button button) {
         this.name = name;
         this.surName=surName;
         this.adress=adress;
@@ -39,10 +39,10 @@ public class TestOrder {
     @Parameterized.Parameters
     public static Object[] Next() {
         return new Object[][] {
-                { "Наиля", "Боркова", "улица 8", "+79992225555","20.02.2024","vvv",Browser.CHROME,MainPage.Button.DOWN},
-                { "Иван", "Иваер", "улица 9", "+79992225555","20.03.2024","ddd",Browser.FIREFOX,MainPage.Button.UP},
-                { "Наиля", "Боркова", "улица 8", "+79992225555","20.02.2024","vvv",Browser.CHROME,MainPage.Button.UP},
-                { "Иван", "Иваер", "улица 9", "+79992225555","20.03.2024","ddd",Browser.FIREFOX,MainPage.Button.DOWN},
+                { "Наиля", "Боркова", "улица 8", "+79992225555","20.02.2024","vvv",ConstantEnum.Browser.CHROME,MainPage.Button.DOWN},
+                { "Иван", "Иваер", "улица 9", "+79992225555","20.03.2024","ddd",ConstantEnum.Browser.FIREFOX,MainPage.Button.UP},
+                { "Наиля", "Боркова", "улица 8", "+79992225555","20.02.2024","vvv",ConstantEnum.Browser.CHROME,MainPage.Button.UP},
+                { "Иван", "Иваер", "улица 9", "+79992225555","20.03.2024","ddd",ConstantEnum.Browser.FIREFOX,MainPage.Button.DOWN},
         };
     }
 
@@ -57,7 +57,7 @@ public class TestOrder {
         driver.quit();
     }
 
-    WebDriver getWebDriver(Browser browser) {
+    WebDriver getWebDriver(ConstantEnum.Browser browser) {
         switch (browser) {
             case CHROME:
                 return new ChromeDriver();

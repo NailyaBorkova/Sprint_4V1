@@ -14,7 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class AccrodTextTest {
      private final By accrodHead;
      private final String expected;
-     private final Browser browser;
+     private final ConstantEnum.Browser browser;
 
     private static final By ACCRODHEAD_0 = By.id("accordion__heading-0");
     private static final By ACCRODHEAD_1 = By.id("accordion__heading-1");
@@ -33,7 +33,7 @@ public class AccrodTextTest {
     private static final String ACCRODPANELTEXT_5 = "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.";
     private static final String ACCRODPANELTEXT_6 = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
     private static final String ACCRODPANELTEXT_7 = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
-    public AccrodTextTest(By accrodHead, String expected, Browser browser) {
+    public AccrodTextTest(By accrodHead, String expected, ConstantEnum.Browser browser) {
         this.accrodHead = accrodHead;
         this.expected=expected;
         this.browser=browser;
@@ -42,22 +42,22 @@ public class AccrodTextTest {
     //В парамтрах к запуску теста передается нужный для взаимодействия элемент, ожидаемый текст на элементе, браузер для проверки
     public static Object[] getText() {
         return new Object[][] {
-                {ACCRODHEAD_0, ACCRODPANELTEXT_0,Browser.CHROME},
-                {ACCRODHEAD_1, ACCRODPANELTEXT_1,Browser.CHROME},
-                {ACCRODHEAD_2, ACCRODPANELTEXT_2,Browser.CHROME},
-                {ACCRODHEAD_3, ACCRODPANELTEXT_3,Browser.CHROME},
-                {ACCRODHEAD_4, ACCRODPANELTEXT_4,Browser.CHROME},
-                {ACCRODHEAD_5, ACCRODPANELTEXT_5,Browser.CHROME},
-                {ACCRODHEAD_6, ACCRODPANELTEXT_6,Browser.CHROME},
-                {ACCRODHEAD_7, ACCRODPANELTEXT_7,Browser.CHROME},
-                {ACCRODHEAD_0, ACCRODPANELTEXT_0,Browser.FIREFOX},
-                {ACCRODHEAD_1, ACCRODPANELTEXT_1,Browser.FIREFOX},
-                {ACCRODHEAD_2, ACCRODPANELTEXT_2,Browser.FIREFOX},
-                {ACCRODHEAD_3, ACCRODPANELTEXT_3,Browser.FIREFOX},
-                {ACCRODHEAD_4, ACCRODPANELTEXT_4,Browser.FIREFOX},
-                {ACCRODHEAD_5, ACCRODPANELTEXT_5,Browser.FIREFOX},
-                {ACCRODHEAD_6, ACCRODPANELTEXT_6,Browser.FIREFOX},
-                {ACCRODHEAD_7, ACCRODPANELTEXT_7,Browser.FIREFOX}
+                {ACCRODHEAD_0, ACCRODPANELTEXT_0,ConstantEnum.Browser.CHROME},
+                {ACCRODHEAD_1, ACCRODPANELTEXT_1,ConstantEnum.Browser.CHROME},
+                {ACCRODHEAD_2, ACCRODPANELTEXT_2,ConstantEnum.Browser.CHROME},
+                {ACCRODHEAD_3, ACCRODPANELTEXT_3,ConstantEnum.Browser.CHROME},
+                {ACCRODHEAD_4, ACCRODPANELTEXT_4,ConstantEnum.Browser.CHROME},
+                {ACCRODHEAD_5, ACCRODPANELTEXT_5,ConstantEnum.Browser.CHROME},
+                {ACCRODHEAD_6, ACCRODPANELTEXT_6,ConstantEnum.Browser.CHROME},
+                {ACCRODHEAD_7, ACCRODPANELTEXT_7,ConstantEnum.Browser.CHROME},
+                {ACCRODHEAD_0, ACCRODPANELTEXT_0,ConstantEnum.Browser.FIREFOX},
+                {ACCRODHEAD_1, ACCRODPANELTEXT_1,ConstantEnum.Browser.FIREFOX},
+                {ACCRODHEAD_2, ACCRODPANELTEXT_2,ConstantEnum.Browser.FIREFOX},
+                {ACCRODHEAD_3, ACCRODPANELTEXT_3,ConstantEnum.Browser.FIREFOX},
+                {ACCRODHEAD_4, ACCRODPANELTEXT_4,ConstantEnum.Browser.FIREFOX},
+                {ACCRODHEAD_5, ACCRODPANELTEXT_5,ConstantEnum.Browser.FIREFOX},
+                {ACCRODHEAD_6, ACCRODPANELTEXT_6,ConstantEnum.Browser.FIREFOX},
+                {ACCRODHEAD_7, ACCRODPANELTEXT_7,ConstantEnum.Browser.FIREFOX}
                 // передали тестовые данные
         };
     }
@@ -74,7 +74,7 @@ public class AccrodTextTest {
         driver.quit();
     }
 
-    WebDriver getWebDriver(Browser browser) {
+    WebDriver getWebDriver(ConstantEnum.Browser browser) {
         switch (browser) {
             case CHROME:
                 return new ChromeDriver();
@@ -93,10 +93,5 @@ public class AccrodTextTest {
     }
 
 
-}
-
-enum Browser {
-    CHROME,
-    FIREFOX;
 }
 
